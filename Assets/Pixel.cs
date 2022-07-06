@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Pixel : MonoBehaviour
 {
-    public Color color
+    public Color color;
+
+    public Color materialColor
     {
         get => GetComponent<Renderer>().material.color;
         set => GetComponent<Renderer>().material.color = value;
-    }
-
-    void Start()
-    {
-        //colorManager = GameObject.Find("ColorChanger").GetComponent<ColorChangeManager>();
-        //color = colorManager.GetRandomColor();
     }
 }
