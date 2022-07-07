@@ -18,7 +18,7 @@ public class Grabber : MonoBehaviour {
 
                     selectedObject = hit.collider.transform.parent.gameObject;
                     
-                    if(selectedObject.transform.parent.name.Contains("Base")) selectedObject.transform.localScale /= 1.5f;
+                    if(selectedObject.transform.parent.name.Contains("Base") && selectedObject.transform.localScale.x > 0.5f) selectedObject.transform.localScale /= 1.5f;
                     
                     basePos = selectedObject.transform.position;
                     Cursor.visible = false;
@@ -30,12 +30,13 @@ public class Grabber : MonoBehaviour {
 
                 if (selectedObject.GetComponent<Cluster>().canBePlaced)
                 {
-                    selectedObject.transform.position = selectedObject.GetComponent<Cluster>().GetSnapPosition() ?? Vector3.zero;
+
+                    LeanTween.move(selectedObject, selectedObject.GetComponent<Cluster>().GetSnapPosition() ?? Vector3.zero, 0.15f).setEaseOutQuint();
                     selectedObject.transform.SetParent(GameObject.Find("GameBlocks").transform);
                 }
                 else
                 {
-                    selectedObject.transform.position = basePos;
+                    LeanTween.move(selectedObject, basePos, 0.1f).setEasePunch();
                 }
 
                 selectedObject = null;

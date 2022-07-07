@@ -31,6 +31,7 @@ public class Base : MonoBehaviour
         }
         cluster.localPosition += Vector3.forward * -1;
         cluster.localScale *= 1.5f;
+        LeanTween.scale(cluster.gameObject, cluster.localScale * 2f, 0.25f).setEasePunch();
     }
 
     public Vector3 GetCenterOfGameObjects(Transform parent)
