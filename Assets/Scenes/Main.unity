@@ -1130,7 +1130,7 @@ MonoBehaviour:
   gameBlock: {fileID: 8260550798761389446, guid: 25895172dca22c941b93f49ec43e9918,
     type: 3}
   gameBlocks: {fileID: 982200063}
-  image: {fileID: 2800000, guid: 1f100eb9a15cc184faf6090deb04b516, type: 3}
+  image: {fileID: 2800000, guid: 8afba9186cbc9e440a482e5afb565450, type: 3}
 --- !u!4 &901511076
 Transform:
   m_ObjectHideFlags: 0
