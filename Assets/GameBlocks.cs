@@ -15,6 +15,8 @@ public class GameBlocks : MonoBehaviour
         {
             List<GameBlock> cluster = GetMostPopular().neighbors;
             GameObject clusterObject = new GameObject(clusterNumber.ToString());
+            clusterObject.AddComponent<Cluster>();
+
             clusterObject.transform.SetParent(clustersParent);
             foreach (GameBlock gb in cluster)
             {

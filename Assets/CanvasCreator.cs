@@ -50,6 +50,7 @@ public class CanvasCreator : MonoBehaviour
                     createdPixelExample.transform.localPosition = new Vector3(placePos.x, placePos.y, placePos.z);
                     createdPixelExample.GetComponent<GameBlock>().color = pColor;
                     createdPixelExample.GetComponent<GameBlock>().materialColor = pColor;
+                    createdPixel.AddComponent<PixelControl>();
                 }
                 else
                 { //on the left side of the canvas

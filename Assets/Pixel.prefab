@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8260550798761389440}
   - component: {fileID: 5287574642888469027}
   - component: {fileID: 2684280899745059786}
-  m_Layer: 0
+  - component: {fileID: -7812385625614912549}
+  m_Layer: 6
   m_Name: Pixel
   m_TagString: Pixel
   m_Icon: {fileID: 0}
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c41c989c39d094a9a16933e3a8b99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2684280899745059786
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105,8 +107,22 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8260550798761389446}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.65, y: 0.2, z: 0.65}
   m_Center: {x: 0, y: 0.65, z: 0}
+--- !u!114 &-7812385625614912549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260550798761389446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40543049a23bf4446980aee9fcb42718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  hoverColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
