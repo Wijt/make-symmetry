@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cluster : MonoBehaviour
 {
+    
     public bool canBePlaced
     {
         get { return GetSnapPosition() != null; }
@@ -15,7 +16,7 @@ public class Cluster : MonoBehaviour
         foreach (HoverEffect px in FindObjectsOfType<HoverEffect>())
             if (px.safeToLand) snapPixels.Add(px.transform);
         
-        if(snapPixels.Count == 0) return null;
+        if(snapPixels.Count < transform.childCount) return null;
         return GetCenterOfGameObjects(snapPixels) + Vector3.up;
     }
 

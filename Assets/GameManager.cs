@@ -6,8 +6,12 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI timeText;
+    public GameObject gameCanvas;
+    public GameObject finishCanvas;
 
     public float elapsedSecond = 0;
+
+    public bool gameFinished = false;
 
     public List<PixelControl> controlList = new();
 
@@ -25,6 +29,10 @@ public class GameManager : MonoBehaviour
         foreach(PixelControl pc in controlList)
             if (pc.isOkey == false) return;
 
+        gameFinished = true;
+        finishCanvas.SetActive(true);
+        gameCanvas.SetActive(false);
+        finishCanvas.transform.Find("Time").GetComponent<TextMeshProUGUI>().text = GetStringTime((int)elapsedSecond);
         Debug.Log("FINITO!");
 
     }
@@ -32,6 +40,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameFinished) return;
         elapsedSecond += Time.deltaTime;
         timeText.text = GetStringTime((int)elapsedSecond);
     }

@@ -30,6 +30,7 @@ public class Base : MonoBehaviour
             item.localPosition = cluster.position + diff;
         }
         cluster.localPosition += Vector3.forward * -1;
+        cluster.localScale *= 1.5f;
     }
 
     public Vector3 GetCenterOfGameObjects(Transform parent)
