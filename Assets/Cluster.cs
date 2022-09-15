@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Cluster : MonoBehaviour
 {
-    
     public bool canBePlaced
     {
         get { return GetSnapPosition() != null; }
@@ -20,15 +19,40 @@ public class Cluster : MonoBehaviour
         return GetCenterOfGameObjects(snapPixels) + Vector3.up;
     }
 
-    public Vector3? GetCenterOfGameObjects(List<Transform> parent)
+    public Vector3? GetCenterOfGameObjects(Transform parent)
     {
         Vector3 centerPos = Vector3.zero;
         foreach (Transform item in parent)
             centerPos += item.position;
 
-        if (parent.Count==0) return null;
+        if (parent.childCount == 0) return null;
 
-        centerPos /= parent.Count;
+        centerPos /= parent.childCount;
         return centerPos;
+    }
+
+    public Vector3? GetCenterOfGameObjects(List<Transform> Objs)
+    {
+        Vector3 centerPos = Vector3.zero;
+        foreach (Transform item in Objs)
+            centerPos += item.position;
+
+        if (Objs.Count == 0) return null;
+
+        centerPos /= Objs.Count;
+        return centerPos;
+    }
+
+    public void RecenterCluster()
+    {
+        if (transform.childCount == 0) return;
+
+        Vector3 centerOfCluster = GetCenterOfGameObjects(transform) ?? Vector3.zero;
+
+        foreach (Transform item in transform)
+        {
+            Vector3 diff = item.localPosition - centerOfCluster;
+            item.localPosition = transform.position + diff;
+        }
     }
 }

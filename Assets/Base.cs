@@ -22,13 +22,8 @@ public class Base : MonoBehaviour
         cluster.SetParent(transform);
         cluster.localPosition = Vector3.zero;
 
-        Vector3 centerOfCluster = GetCenterOfGameObjects(cluster);
+        cluster.GetComponent<Cluster>().RecenterCluster();
 
-        foreach (Transform item in cluster)
-        {
-            Vector3 diff = item.localPosition - centerOfCluster;
-            item.localPosition = cluster.position + diff;
-        }
         cluster.localPosition += Vector3.forward * -1;
         cluster.localScale *= 1.5f;
         LeanTween.scale(cluster.gameObject, cluster.localScale * 2f, 0.25f).setEasePunch();
